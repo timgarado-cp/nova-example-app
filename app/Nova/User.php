@@ -48,7 +48,7 @@ class User extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Motorcycles', 'motorcycle', \App\Nova\Motorcycle::class),
+            // BelongsTo::make('Motorcycles', 'motorcycle', \App\Nova\Motorcycle::class),
 
             Gravatar::make()->maxWidth(50),
 
@@ -62,7 +62,7 @@ class User extends Resource
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
-            HasMany::make('Motorcycles', 'motorcycles', UserMotorcycle::class),
+            BelongsToMany::make('Motorcycle', 'motorcycle', Motorcycle::class),
         ];
     }
 

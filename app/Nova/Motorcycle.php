@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Models\Category;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
@@ -48,6 +49,7 @@ class Motorcycle extends Resource
             Number::make("displacement"),
             BelongsTo::make('Category', 'category', \App\Nova\Category::class),
             BelongsTo::make('Brand', 'brand', \App\Nova\Brand::class),
+            BelongsToMany::make('User', 'user', \App\Nova\User::class),
         ];
     }
 

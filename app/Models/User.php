@@ -46,13 +46,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function motorcycle() : BelongsTo 
+    public function motorcycle() : BelongsToMany 
     {
-        return $this->belongsTo(Motorcycle::class);
-    }
-
-    public function motorcycles() : HasMany 
-    {
-        return $this->hasMany(UserMotorcycle::class);
+        return $this->belongsToMany(Motorcycle::class);
     }
 }
+
