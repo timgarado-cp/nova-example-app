@@ -1,7 +1,4 @@
 # Laravel Nova Project
-
-## Overview
-
 Exploring Laravel Nova
 
 ## Table of Contents
@@ -14,13 +11,13 @@ Exploring Laravel Nova
 1. Clone the repository:
 
     ```bash
-    https://github.com/timgarado-cp/nova-example-app.git
+    git clone https://github.com/timgarado-cp/nova-example-app.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd your-repo
+    cd nova-example-app
     ```
 
 3. Install dependencies:
@@ -41,7 +38,8 @@ Exploring Laravel Nova
     php artisan migrate
     ```
 
+
 ## Usage
-
-php artisan serve
-
+    ```bash
+    php artisan serve
+    ```

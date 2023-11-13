@@ -2,11 +2,12 @@
 
 namespace App\Nova\Metrics;
 
+use App\Models\User;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Value;
 use Laravel\Nova\Nova;
 
-class NewUsers extends Value
+class CountUsers extends Value
 {
     /**
      * Calculate the value of the metric.
@@ -16,7 +17,7 @@ class NewUsers extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Model::class);
+        return $this->count($request, User::class);
     }
 
     /**
@@ -45,5 +46,15 @@ class NewUsers extends Value
     public function cacheFor()
     {
         // return now()->addMinutes(5);
+    }
+
+     /**
+     * Get the displayable name of the metric.
+     *
+     * @return string
+     */
+    public function name()
+    {
+        return 'Users';
     }
 }
