@@ -40,6 +40,8 @@ Exploring Laravel Nova
 
 
 ## Usage
+
     ```bash
     php artisan serve
     ```
+
