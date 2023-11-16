@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Motorcycle extends Resource
@@ -48,6 +49,7 @@ class Motorcycle extends Resource
             ID::make()->sortable(),
             Text::make("Name"),
             Number::make("Displacement"),
+            Trix::make('Description'),
             Image::make("Cover")->path('pictures'),
             BelongsTo::make('Category', 'category', \App\Nova\Category::class),
             BelongsTo::make('Brand', 'brand', \App\Nova\Brand::class),

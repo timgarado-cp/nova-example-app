@@ -4,10 +4,12 @@ namespace App\Nova;
 
 use App\Nova\Actions\ActivateUser;
 use App\Nova\Actions\DeactivateUser;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -48,7 +50,7 @@ class User extends Resource
             ID::make()->sortable(),
             // BelongsTo::make('Motorcycles', 'motorcycle', \App\Nova\Motorcycle::class),
 
-            Gravatar::make()->maxWidth(50),
+            Avatar::make('Avatar')->path('avatars')->maxWidth(50),
 
             Text::make('Name')
                 ->sortable()
@@ -60,6 +62,7 @@ class User extends Resource
                 ->creationRules('unique:users,email')
                 ->updateRules('unique:users,email,{{resourceId}}'),
 
+            Password::make('Password'),
             Boolean::make('Active'),
 
             BelongsToMany::make('Motorcycle', 'motorcycle', Motorcycle::class),
