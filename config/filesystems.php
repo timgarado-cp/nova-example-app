@@ -67,9 +67,11 @@ return [
     | `storage:link` Artisan command is executed. The array keys should be
     | the locations of the links and the values should be their targets.
     |
-    */
 
+    */
     'links' => [
+        // public_path('covers') => storage_path('app/covers'),
+        public_path('pictures') => storage_path('app/public/pictures'),
         public_path('storage') => storage_path('app/public'),
     ],
 

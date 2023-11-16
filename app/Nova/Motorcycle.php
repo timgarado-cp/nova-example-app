@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Motorcycle extends Resource
@@ -32,7 +33,7 @@ class Motorcycle extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -45,8 +46,9 @@ class Motorcycle extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make("name"),
-            Number::make("displacement"),
+            Text::make("Name"),
+            Number::make("Displacement"),
+            Image::make("Cover")->path('pictures'),
             BelongsTo::make('Category', 'category', \App\Nova\Category::class),
             BelongsTo::make('Brand', 'brand', \App\Nova\Brand::class),
             BelongsToMany::make('User', 'user', \App\Nova\User::class),

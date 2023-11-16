@@ -10,6 +10,14 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Brand extends Resource
 {
+
+    /**
+     * The pagination per-page options configured for this resource.
+     *
+     * @return array
+     */
+    public static $perPageOptions = [5,10,20];
+
     /**
      * The model the resource corresponds to.
      *
@@ -30,7 +38,7 @@ class Brand extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'name',
     ];
 
     /**
@@ -43,8 +51,8 @@ class Brand extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make("name")->sortable(),
-            HasMany::make('Motorcycles', 'motorcycles', Motorcycle::class),
+            Text::make("name")->sortable()->help("Name of the motorcycles."),
+            HasMany::make('Motorcycles', 'motorcycles', Motorcycle::class)->sortable(),
         ];
     }
 
